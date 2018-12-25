@@ -14,6 +14,10 @@ Route::group(['middleware' => 'auth'], function () {
     Route::group(['middleware' => 'email_verified'], function () {
 
         Route::get('/user_addresses','UserAddressController@index')->name('user_addresses.index');
+
+        Route::post('/user_addresses','UserAddressController@store')->name('user_addresses.store');
+
+        Route::get('/user_addresses/create','UserAddressController@create')->name('user_addresses.create');
     });
 });
 
