@@ -34,6 +34,10 @@ Route::group(['middleware' => 'auth'], function () {
 
         Route::post('/cart', 'CartController@add')->name('cart.add');
 
+        Route::get('/cart', 'CartController@index')->name('cart.index');
+
+        Route::delete('/cart/{productSku}', 'CartController@remove')->name('cart.remove');
+
     });
 });
 
