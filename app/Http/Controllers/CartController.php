@@ -6,7 +6,6 @@ use App\Http\Requests\AddCartRequest;
 use App\Models\CartItem;
 use App\Models\ProductSku;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Log;
 
 class CartController extends Controller
 {
@@ -42,7 +41,6 @@ class CartController extends Controller
 
     public function remove(ProductSku $productSku, Request $request)
     {
-        Log::info($productSku);
         $request->user()->cartItem()->where('product_sku_id', $productSku->id)->delete();
         return;
     }
