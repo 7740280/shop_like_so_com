@@ -42,6 +42,8 @@ Route::group(['middleware' => 'auth'], function () {
 
         Route::get('/orders', 'OrderController@index')->name('orders.index');
 
+        Route::get('/orders/{order}', 'OrderController@show')->name('orders.show');
+
     });
 });
 
