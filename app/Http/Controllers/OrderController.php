@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\OrderRequest;
+use App\Jobs\CloseOrder;
 use App\Models\Order;
 use App\Models\Product;
 use App\Models\ProductSku;
@@ -64,6 +65,8 @@ class OrderController extends Controller
 
             return $order;
         });
+
+        $this->dispatch(new CloseOrder($order, config('app.order_ttl')));
 
         return $order;
     }
