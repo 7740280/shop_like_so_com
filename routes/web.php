@@ -40,6 +40,8 @@ Route::group(['middleware' => 'auth'], function () {
 
         Route::post('/orders', 'OrderController@store')->name('orders.store');
 
+        Route::get('/orders', 'OrderController@index')->name('orders.index');
+
     });
 });
 
