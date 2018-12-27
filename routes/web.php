@@ -38,6 +38,8 @@ Route::group(['middleware' => 'auth'], function () {
 
         Route::delete('/cart/{productSku}', 'CartController@remove')->name('cart.remove');
 
+        Route::post('/orders', 'OrderController@store')->name('orders.store');
+
     });
 });
 
